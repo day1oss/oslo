@@ -1,81 +1,16 @@
 {
 	"name": "@day1co/oslo",
-	"type": "module",
-	"version": "1.2.0",
+	"type": "commonjs",
+	"version": "1.2.1",
 	"description": "A collection of auth-related utilities",
-	"main": "./dist/cjs/index.js",
-	"types": "./dist/types/index.d.ts",
-	"module": "./dist/esm/index.js",
+	"main": "./index.js",
+	"types": "./index.d.ts",
 	"scripts": {
-		"build": "rm -rf dist/* && tsc --project tsconfig.build.esm.json && tsc --project tsconfig.build.cjs.json && tsc --project tsconfig.build.dts.json",
+		"build": "rm -rf dist/* && tsc --project tsconfig.build.cjs.json",
+		"publish": "npm run build && cp package.json dist/cjs && cp README.md dist/cjs && cp LICENSE dist/cjs && cd dist/cjs",
 		"format": "prettier -w .",
 		"lint": "eslint src",
 		"test": "vitest run --sequence.concurrent"
-	},
-	"files": [
-		"/dist/"
-	],
-	"exports": {
-		".": {
-			"types": "./dist/types/index.d.ts",
-			"require": "./dist/cjs/index.js",
-			"import": "./dist/esm/index.js",
-			"default": "./dist/cjs/index.js"
-		},
-		"./cookie": {
-			"types": "./dist/types/cookie/index.d.ts",
-			"require": "./dist/cjs/cookie/index.js",
-			"import": "./dist/esm/cookie/index.js",
-			"default": "./dist/cjs/cookie/index.js"
-		},
-		"./crypto": {
-			"types": "./dist/types/crypto/index.d.ts",
-			"require": "./dist/cjs/crypto/index.js",
-			"import": "./dist/esm/crypto/index.js",
-			"default": "./dist/cjs/crypto/index.js"
-		},
-		"./encoding": {
-			"types": "./dist/types/encoding/index.d.ts",
-			"require": "./dist/cjs/encoding/index.js",
-			"import": "./dist/esm/encoding/index.js",
-			"default": "./dist/cjs/encoding/index.js"
-		},
-		"./jwt": {
-			"types": "./dist/types/jwt/index.d.ts",
-			"require": "./dist/cjs/jwt/index.js",
-			"import": "./dist/esm/jwt/index.js",
-			"default": "./dist/cjs/jwt/index.js"
-		},
-		"./oauth2": {
-			"types": "./dist/types/oauth2/index.d.ts",
-			"require": "./dist/cjs/oauth2/index.js",
-			"import": "./dist/esm/oauth2/index.js",
-			"default": "./dist/cjs/oauth2/index.js"
-		},
-		"./otp": {
-			"types": "./dist/types/otp/index.d.ts",
-			"require": "./dist/cjs/otp/index.js",
-			"import": "./dist/esm/otp/index.js",
-			"default": "./dist/cjs/otp/index.js"
-		},
-		"./password": {
-			"types": "./dist/types/password/index.d.ts",
-			"require": "./dist/cjs/password/index.js",
-			"import": "./dist/esm/password/index.js",
-			"default": "./dist/cjs/password/index.js"
-		},
-		"./request": {
-			"types": "./dist/types/request/index.d.ts",
-			"require": "./dist/cjs/request/index.js",
-			"import": "./dist/esm/request/index.js",
-			"default": "./dist/cjs/request/index.js"
-		},
-		"./webauthn": {
-			"types": "./dist/types/webauthn/index.d.ts",
-			"require": "./dist/cjs/webauthn/index.js",
-			"import": "./dist/esm/webauthn/index.js",
-			"default": "./dist/cjs/webauthn/index.js"
-		}
 	},
 	"keywords": [
 		"auth",
