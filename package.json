@@ -1,16 +1,79 @@
 {
 	"name": "@day1co/oslo",
 	"type": "commonjs",
-	"version": "1.2.1",
+	"version": "1.2.2",
 	"description": "A collection of auth-related utilities",
 	"main": "./index.js",
-	"types": "./index.d.ts",
+	"types": "./types/index.d.ts",
+	"module": "./esm/index.js",
 	"scripts": {
-		"build": "rm -rf dist/* && tsc --project tsconfig.build.cjs.json",
-		"publish": "npm run build && cp package.json dist/cjs && cp README.md dist/cjs && cp LICENSE dist/cjs && cd dist/cjs",
+		"build": "rm -rf dist/* && tsc -b tsconfig.build.cjs.json tsconfig.build.esm.json tsconfig.build.dts.json",
+		"standby": "npm run build && cp package.json dist && cp README.md dist && cp LICENSE dist && cd dist",
 		"format": "prettier -w .",
 		"lint": "eslint src",
 		"test": "vitest run --sequence.concurrent"
+	},
+	"exports": {
+		".": {
+			"types": "./types/index.d.ts",
+			"require": "./index.js",
+			"import": "./esm/index.js",
+			"default": "./index.js"
+		},
+		"./cookie": {
+			"types": "./types/cookie/index.d.ts",
+			"require": "./cookie/index.js",
+			"import": "./esm/cookie/index.js",
+			"default": "./cookie/index.js"
+		},
+		"./crypto": {
+			"types": "./types/crypto/index.d.ts",
+			"require": "./crypto/index.js",
+			"import": "./esm/crypto/index.js",
+			"default": "./crypto/index.js"
+		},
+		"./encoding": {
+			"types": "./types/encoding/index.d.ts",
+			"require": "./encoding/index.js",
+			"import": "./esm/encoding/index.js",
+			"default": "./encoding/index.js"
+		},
+		"./jwt": {
+			"types": "./types/jwt/index.d.ts",
+			"require": "./jwt/index.js",
+			"import": "./esm/jwt/index.js",
+			"default": "./jwt/index.js"
+		},
+		"./oauth2": {
+			"types": "./types/oauth2/index.d.ts",
+			"require": "./oauth2/index.js",
+			"import": "./esm/oauth2/index.js",
+			"default": "./oauth2/index.js"
+		},
+		"./otp": {
+			"types": "./types/otp/index.d.ts",
+			"require": "./otp/index.js",
+			"import": "./esm/otp/index.js",
+			"default": "./otp/index.js"
+		},
+		"./password": {
+			"types": "./types/password/index.d.ts",
+			"require": "./password/index.js",
+			"import": "./esm/password/index.js",
+			"default": "./password/index.js"
+		},
+		"./request": {
+			"types": "./types/request/index.d.ts",
+			"require": "./request/index.js",
+			"import": "./esm/request/index.js",
+			"default": "./request/index.js"
+		},
+		"./webauthn": {
+			"types": "./types/webauthn/index.d.ts",
+			"require": "./webauthn/index.js",
+			"import": "./esm/webauthn/index.js",
+			"default": "./webauthn/index.js"
+		}
 	},
 	"keywords": [
 		"auth",
